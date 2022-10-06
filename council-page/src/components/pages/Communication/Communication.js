@@ -16,15 +16,9 @@ import Banner_communication from "./Banner_communication";
 import Form_petiton from "./Petition/Form_petiton";
 import Complete_Form from "./Complete_Form";
 
-const initialPostList = [
-    { id: 1, title: "총학생회 첫 홈페이지 게시판" },
-    { id: 2, title: "멋사가 총학생회 홈페이지 만들다" },
-    { id: 3, title: "총학생회 x 멋쟁이사자처럼" },
-];
-
 function Communication() {
     const [postList, setPostList] = useState([]); //postList 변수 정의하고 setPostList함수로 부른다.
-    const [list, setList] = useState([]);
+    const [text, setText] = useState([]);
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState([]);
 
@@ -37,31 +31,35 @@ function Communication() {
 
     const getPostList = useEffect(() => {
         axios
-            .get("https://jsonplaceholder.typicode.com/posts")
+            // 일단 notice 링크 걸어둠
+            // 나중에 "http://127.0.0.1:8000/boards/petition"으로 수정
+            .get("http://127.0.0.1:8000/boards/notice")
             .then((response) => {
-                //console.log(response);
-                setList(response.data.slice(0, 10));
-                console.log(list);
+                setText([...response.data]);
+                console.log(response.data);
+            })
+            .catch((errors) => {
+                console.log("error");
             });
     }, []);
 
     return (
         <>
-            <Banner_communication/>
+            <Banner_communication />
             {/* <Form_petiton/> */}
-            <Complete_Form/>
+            <Complete_Form />
             <Nav_communication />
 
             <PostSection>
                 <PostTitle>청원 게시판</PostTitle>
                 <ComHeader></ComHeader>
                 <PostListDiv>
-                    {list === null ? (
+                    {text === null ? (
                         <LoadingDiv>아직 기록된 글이 없습니다</LoadingDiv>
                     ) : (
                         <table className="common-table">
                             <tbody>
-                                {list.map((element) => (
+                                {text.map((element) => (
                                     <tr>
                                         <EachPost
                                             postID={element.id}

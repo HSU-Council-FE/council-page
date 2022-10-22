@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import {Button} from './Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './Navbar.css';
+import Logoimg from "./../images/Logo_img.png";
+import Loginimg from "./../images/Vector.png";
 
 function Navbar() {
     const [click,setClick] = useState(false);
@@ -36,7 +38,7 @@ function Navbar() {
     <nav className='navibar' >
         <div className='navbar-container'>
             <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
-                BASE
+            <img src={Logoimg} class="img-fluid"  />
             </Link>
             {/* <Link to="/" className='navbar-logo-sub' onClick={closeMobileMenu}>
                 한성대학교 {generation}대 총학생회 {name_of_council}
@@ -90,6 +92,11 @@ function Navbar() {
                             회원가입
                         </Link>
                     </li> */}
+                    <li className='nav-item'>
+                        <Link to='/sign-in' className='nav-links-sign' onClick = {closeMobileMenu}>
+                        <img src={Loginimg} />
+                        </Link>
+                    </li>
                     <li className='nav-item'>
                         <Link to='/sign-in' className='nav-links-sign' onClick = {closeMobileMenu}>
                             로그인

@@ -5,8 +5,10 @@ import Banner_notice from "./Banner_notice";
 
 const Notice_create = () => {
     return (
+        <>
+        <Banner_notice />
         <Form className="create-form">
-            <Banner_notice />
+            
             <div className="notice-title">공지사항 등록</div>
             <InputGroup controlId="titleInput">
                 <Form.Label className="label">제목</Form.Label>
@@ -30,6 +32,7 @@ const Notice_create = () => {
                 등록하기
             </Button>
         </Form>
+        </>
     );
 };
 

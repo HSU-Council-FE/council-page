@@ -10,16 +10,19 @@ import Banner_notice from "./Banner_notice";
 function MainNotice() {
     const [hrefState, setHrefState] = useState("chongdae");
     const [list, setList] = useState([]);
+    const [text, setText] = useState([]);
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState([]);
 
     const getPostList = useEffect(() => {
         axios
-            .get("https://jsonplaceholder.typicode.com/posts")
+            .get("http://127.0.0.1:8000/boards/notice-board/")
             .then((response) => {
                 //console.log(response);
-                setList(response.data.slice(0, 10));
-                console.log(list);
+                // setList(response.data.slice(0, 10));
+                // console.log(list);
+                setText([...response.data]);
+                console.log(response.data);
             });
     }, []);
 

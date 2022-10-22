@@ -29,6 +29,7 @@ tr {
 }
 .create-form {
     width: 90%;
+    margin: auto;
 }
 .create-box {
     margin-left: 2rem;

@@ -94,7 +94,7 @@ function Navbar() {
                     </li> */}
                     <li className='nav-item'>
                         <Link to='/sign-in' className='nav-links-sign' onClick = {closeMobileMenu}>
-                        <img src={Loginimg} />
+                        <img src={Loginimg} className='nav-menu-sign-img'/>
                         </Link>
                     </li>
                     <li className='nav-item'>

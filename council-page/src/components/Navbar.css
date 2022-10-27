@@ -141,8 +141,14 @@
     font-family: 'Noto Sans KR';
     font-style: normal;   
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.5rem;
     color: #6E778D;
+  }
+
+  .nav-menu-sign-img{
+    padding: 35% 25%;
+    margin: 90%;
+    
   }
 
   Link.nav-links-sign:after{
